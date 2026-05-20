@@ -19,12 +19,24 @@ android {
     namespace = "com.fitcrave.app"
     compileSdk = 34
 
+    signingConfigs {
+        create("release") {
+            val storeFileName = prop("RELEASE_STORE_FILE", "")
+            if (storeFileName.isNotBlank() && file(storeFileName).exists()) {
+                storeFile = file(storeFileName)
+                storePassword = prop("RELEASE_STORE_PASSWORD", "")
+                keyAlias = prop("RELEASE_KEY_ALIAS", "")
+                keyPassword = prop("RELEASE_KEY_PASSWORD", "")
+            }
+        }
+    }
+
     defaultConfig {
         applicationId = "com.fitcrave.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -50,6 +62,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Only apply the release signing config if a keystore file is configured;
+            // otherwise CI / fresh checkouts still produce an unsigned APK.
+            val rc = signingConfigs.findByName("release")
+            if (rc?.storeFile?.exists() == true) {
+                signingConfig = rc
+            }
         }
     }
     compileOptions {

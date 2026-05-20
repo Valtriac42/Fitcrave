@@ -1,0 +1,56 @@
+Fitcrave — Proprietary Software License
+=======================================
+
+Copyright (c) 2026 Tapovan Impex Private Limited (TIPL).
+All rights reserved.
+
+Developed by: Priyanshu Sharma
+Company:      Tapovan Impex Private Limited ("TIPL")
+
+This software, including the Android application named "Fitcrave", the
+associated web dashboard, the database schema and any accompanying
+documentation (collectively, the "Software"), is the confidential and
+proprietary property of Tapovan Impex Private Limited.
+
+1. Grant of Rights
+   No license, express or implied, is granted to any person to use, copy,
+   modify, merge, publish, distribute, sublicense, sell, host, or otherwise
+   exploit the Software, in whole or in part, except by employees, contractors
+   or other persons explicitly authorized in writing by Tapovan Impex Private
+   Limited.
+
+2. Restrictions
+   You may not (a) reverse-engineer, decompile, or disassemble the Software,
+   except to the extent permitted by applicable law; (b) remove, alter or
+   obscure any copyright, trademark, or other proprietary notice on or in
+   the Software; (c) use the Software, the Fitcrave name, or any TIPL
+   trademark to imply endorsement of a third-party product or service
+   without TIPL's prior written consent.
+
+3. Third-Party Components
+   The Software depends on third-party open-source libraries (including but
+   not limited to AndroidX, Material Components, Kotlin, Ktor, kotlinx
+   coroutines, kotlinx serialization, the Supabase Kotlin SDK and Next.js).
+   Each such library remains subject to its own license. This License does
+   not modify the rights granted to you under those licenses.
+
+4. Confidentiality
+   The Software, including without limitation its source code, build scripts,
+   API keys, signing keys, and design assets, constitutes the confidential
+   information of TIPL. You shall use the same degree of care to protect
+   such information as you use to protect your own confidential information
+   of like importance, and in no event less than reasonable care.
+
+5. No Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+6. Limitation of Liability
+   IN NO EVENT SHALL TAPOVAN IMPEX PRIVATE LIMITED OR ITS REPRESENTATIVES
+   BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+   ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+For licensing inquiries, contact Tapovan Impex Private Limited.

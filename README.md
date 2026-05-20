@@ -1,8 +1,13 @@
 # Fitcrave — Android Gym App
 
+**Developed by:** Priyanshu Sharma
+**Company:** Tapovan Impex Private Limited (TIPL)
+**Copyright:** © 2026 Tapovan Impex Private Limited. All rights reserved. See [LICENSE](LICENSE).
+
 Android Studio project for a gym/fitness app that matches the supplied Fitcrave UI exactly, with:
 - Supabase for auth + data (`profiles`, `daily_stats`, `workouts` tables)
 - A WebView screen that opens a Vercel-hosted dashboard
+- Release-signed APK distributed via GitHub Releases
 
 ## Project layout
 
@@ -99,5 +104,24 @@ The vector illustrations are stylised placeholders; drop your own PNGs into `res
 - **`SUPABASE_URL` placeholder error at runtime** — you forgot to fill in `local.properties` and rebuild.
 - **WebView shows the placeholder URL** — set `VERCEL_URL` in `local.properties` then rebuild.
 
+## Release signing
+
+The release APK is signed with `app/fitcrave-release.keystore` (gitignored). The keystore was generated for:
+
+```
+CN = Priyanshu Sharma
+OU = Development
+O  = Tapovan Impex Private Limited (TIPL)
+C  = IN
+```
+
+Password lives in `local.properties` as `RELEASE_STORE_PASSWORD` / `RELEASE_KEY_PASSWORD`. **Back up both the keystore file and `local.properties` somewhere safe** — losing them means you can never ship an update under the same package name on the Play Store.
+
+To cut a new release locally:
+```powershell
+.\gradlew.bat assembleRelease
+# APK lands at app/build/outputs/apk/release/app-release.apk
+```
+
 ---
-Built around a single Activity host (`MainActivity`) + three Fragments, with detail Activities reused for Workout / Diet / Report / WebView.
+© 2026 Tapovan Impex Private Limited. Built by Priyanshu Sharma. Single Activity host (`MainActivity`) + three Fragments, with detail Activities reused for Workout / Diet / Report / WebView.

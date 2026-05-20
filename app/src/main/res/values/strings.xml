@@ -40,4 +40,10 @@
 
     <!-- WebView -->
     <string name="open_web_dashboard">Open Web Dashboard</string>
+
+    <!-- About -->
+    <string name="developer_line">Developed by Priyanshu Sharma</string>
+    <string name="company_line">Tapovan Impex Private Limited (TIPL)</string>
+    <string name="copyright_line">© 2026 Tapovan Impex Private Limited. All rights reserved.</string>
+    <string name="app_version_line">Fitcrave v1.1.0  •  TIPL</string>
 </resources>
