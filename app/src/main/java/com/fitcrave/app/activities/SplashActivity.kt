@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // If we crashed last time, route the user to the crash report screen first.
+        // If we crashed last time, show the crash report first.
         val crash = FitcraveApp.crashFile(this)
         if (crash.exists()) {
             startActivity(Intent(this, CrashReportActivity::class.java))
@@ -29,7 +29,12 @@ class SplashActivity : AppCompatActivity() {
             val signedIn = runCatching {
                 SupabaseProvider.client?.auth?.currentUserOrNull() != null
             }.getOrDefault(false)
-            val next = if (signedIn) MainActivity::class.java else LoginActivity::class.java
+
+            val next = when {
+                !signedIn -> LoginActivity::class.java
+                !OnboardingActivity.isCompleted(this@SplashActivity) -> OnboardingActivity::class.java
+                else -> MainActivity::class.java
+            }
             startActivity(Intent(this@SplashActivity, next))
             finish()
         }

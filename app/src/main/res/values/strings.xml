@@ -41,9 +41,30 @@
     <!-- WebView -->
     <string name="open_web_dashboard">Open Web Dashboard</string>
 
+    <!-- Updates -->
+    <string name="check_for_update">Check for update</string>
+    <string name="check_update_subtitle">Download and install in the app</string>
+    <string name="update_available">Update available</string>
+    <string name="update_up_to_date">You\'re up to date</string>
+    <string name="update_check_failed">Check failed — try again later</string>
+    <string name="update_downloading">Downloading…</string>
+    <string name="update_install">Install</string>
+    <string name="update_later">Later</string>
+
+    <!-- Onboarding -->
+    <string name="onb_skip">Skip</string>
+    <string name="onb_next">Next</string>
+    <string name="onb_start">Get Started</string>
+    <string name="onb_title_1">Welcome to Fitcrave</string>
+    <string name="onb_body_1">Your personal gym companion — workouts, diet, reports, all in one place.</string>
+    <string name="onb_title_2">Smart workouts</string>
+    <string name="onb_body_2">Day-by-day routines that adapt to your progress. Tap Start, lift, repeat.</string>
+    <string name="onb_title_3">Track everything</string>
+    <string name="onb_body_3">Weekly streaks, calories burned, minutes trained — synced to your Fitcrave account.</string>
+
     <!-- About -->
     <string name="developer_line">Developed by Priyanshu Sharma</string>
     <string name="company_line">Tapovan Impex Private Limited (TIPL)</string>
     <string name="copyright_line">© 2026 Tapovan Impex Private Limited. All rights reserved.</string>
-    <string name="app_version_line">Fitcrave v1.1.2  •  TIPL</string>
+    <string name="app_version_line">Fitcrave v1.2.0  •  TIPL</string>
 </resources>

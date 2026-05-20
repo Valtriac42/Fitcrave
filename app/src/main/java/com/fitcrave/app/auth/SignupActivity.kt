@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.fitcrave.app.MainActivity
+import com.fitcrave.app.activities.OnboardingActivity
 import com.fitcrave.app.data.FitcraveRepository
 import com.fitcrave.app.databinding.ActivitySignupBinding
 import kotlinx.coroutines.launch
@@ -44,7 +45,8 @@ class SignupActivity : AppCompatActivity() {
             binding.btnSignup.isEnabled = true
             result.onSuccess {
                 toast("Account created — check email if confirmation is enabled")
-                startActivity(Intent(this@SignupActivity, MainActivity::class.java))
+                // New users always get the onboarding flow before landing on home.
+                startActivity(Intent(this@SignupActivity, OnboardingActivity::class.java))
                 finish()
             }.onFailure { e ->
                 toast(e.message ?: "Signup failed")

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.fitcrave.app.MainActivity
+import com.fitcrave.app.activities.OnboardingActivity
 import com.fitcrave.app.data.FitcraveRepository
 import com.fitcrave.app.databinding.ActivityLoginBinding
 import kotlinx.coroutines.launch
@@ -41,7 +42,9 @@ class LoginActivity : AppCompatActivity() {
             binding.progress.visibility = View.GONE
             binding.btnLogin.isEnabled = true
             result.onSuccess {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                val next = if (!OnboardingActivity.isCompleted(this@LoginActivity))
+                    OnboardingActivity::class.java else MainActivity::class.java
+                startActivity(Intent(this@LoginActivity, next))
                 finish()
             }.onFailure { e ->
                 toast(e.message ?: "Login failed")
