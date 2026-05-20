@@ -14,26 +14,28 @@ import java.util.Locale
  * Thin wrapper around the Supabase client. Every call is a suspend function so callers must
  * be in a coroutine scope (lifecycleScope / viewModelScope).
  *
- * Uses Supabase Kotlin 2.x API: `client.from("table")...`.
+ * All read methods return null/empty on failure (table missing, network error, etc.) so the
+ * UI never crashes — the user just sees zeros until the backend is reachable.
  */
 class FitcraveRepository {
 
     private val client get() = SupabaseProvider.client
 
     val currentUserId: String?
-        get() = client.auth.currentUserOrNull()?.id
+        get() = client?.auth?.currentUserOrNull()?.id
 
     val currentUserEmail: String?
-        get() = client.auth.currentUserOrNull()?.email
+        get() = client?.auth?.currentUserOrNull()?.email
 
     suspend fun signUp(email: String, password: String, fullName: String) {
-        client.auth.signUpWith(Email) {
+        val c = SupabaseProvider.requireClient()
+        c.auth.signUpWith(Email) {
             this.email = email
             this.password = password
         }
         currentUserId?.let { uid ->
             runCatching {
-                client.from("profiles").insert(
+                c.from("profiles").insert(
                     Profile(id = uid, fullName = fullName, email = email)
                 )
             }
@@ -41,20 +43,22 @@ class FitcraveRepository {
     }
 
     suspend fun signIn(email: String, password: String) {
-        client.auth.signInWith(Email) {
+        val c = SupabaseProvider.requireClient()
+        c.auth.signInWith(Email) {
             this.email = email
             this.password = password
         }
     }
 
     suspend fun signOut() {
-        client.auth.signOut()
+        client?.auth?.signOut()
     }
 
     suspend fun fetchProfile(): Profile? {
+        val c = client ?: return null
         val uid = currentUserId ?: return null
         return runCatching {
-            client.from("profiles")
+            c.from("profiles")
                 .select {
                     filter { eq("id", uid) }
                     limit(1)
@@ -64,10 +68,11 @@ class FitcraveRepository {
     }
 
     suspend fun fetchTodayStats(): DailyStats? {
+        val c = client ?: return null
         val uid = currentUserId ?: return null
         val today = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
         return runCatching {
-            client.from("daily_stats")
+            c.from("daily_stats")
                 .select {
                     filter {
                         eq("user_id", uid)
@@ -80,9 +85,10 @@ class FitcraveRepository {
     }
 
     suspend fun fetchWeeklyWorkoutDays(): Set<Int> {
+        val c = client ?: return emptySet()
         val uid = currentUserId ?: return emptySet()
         return runCatching {
-            client.from("workouts")
+            c.from("workouts")
                 .select {
                     filter {
                         eq("user_id", uid)
@@ -96,9 +102,10 @@ class FitcraveRepository {
     }
 
     suspend fun markWorkoutComplete(dayNumber: Int) {
+        val c = client ?: return
         val uid = currentUserId ?: return
         runCatching {
-            client.from("workouts").insert(
+            c.from("workouts").insert(
                 WorkoutRow(userId = uid, dayNumber = dayNumber, completed = true)
             )
         }

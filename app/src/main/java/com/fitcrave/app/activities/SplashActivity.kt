@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(600)
             val signedIn = runCatching {
-                SupabaseProvider.client.auth.currentUserOrNull() != null
+                SupabaseProvider.client?.auth?.currentUserOrNull() != null
             }.getOrDefault(false)
             val next = if (signedIn) MainActivity::class.java else LoginActivity::class.java
             startActivity(Intent(this@SplashActivity, next))

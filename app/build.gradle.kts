@@ -35,8 +35,8 @@ android {
         applicationId = "com.fitcrave.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 3
+        versionName = "1.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -99,16 +99,15 @@ dependencies {
     // Image loading
     implementation("io.coil-kt:coil:2.5.0")
 
-    // Supabase
+    // Supabase — Auth + Postgrest only (Realtime needs a WS engine; not needed yet)
     implementation(platform("io.github.jan-tennert.supabase:bom:2.0.4"))
     implementation("io.github.jan-tennert.supabase:postgrest-kt")
     implementation("io.github.jan-tennert.supabase:gotrue-kt")
-    implementation("io.github.jan-tennert.supabase:realtime-kt")
-    implementation("io.github.jan-tennert.supabase:storage-kt")
 
-    // Ktor HTTP client (Supabase requirement)
-    implementation("io.ktor:ktor-client-android:2.3.7")
+    // Ktor HTTP client (Supabase requirement) — OkHttp engine plays well with Android
+    implementation("io.ktor:ktor-client-okhttp:2.3.7")
     implementation("io.ktor:ktor-client-core:2.3.7")
+    implementation("io.ktor:ktor-client-logging:2.3.7")
     implementation("io.ktor:ktor-utils:2.3.7")
 
     // Coroutines
