@@ -1,0 +1,11 @@
+# Copy this to local.properties and fill in your real values.
+# Android Studio normally writes sdk.dir for you; the lines below are project-specific.
+
+sdk.dir=C\:\\Users\\PRIYANSHU\\AppData\\Local\\Android\\Sdk
+
+# Supabase
+SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+
+# Vercel (the URL of your deployed web dashboard)
+VERCEL_URL=https://your-fitcrave.vercel.app

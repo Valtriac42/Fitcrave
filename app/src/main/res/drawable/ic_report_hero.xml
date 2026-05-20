@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="160dp"
+    android:viewportWidth="320"
+    android:viewportHeight="160">
+
+    <!-- Dark background -->
+    <path
+        android:fillColor="#1A1A1A"
+        android:pathData="M0,0h320v160h-320z" />
+
+    <!-- Spotlight gradient effect via overlay shape -->
+    <path
+        android:fillColor="#2A2A2A"
+        android:pathData="M60,20c0,0 50,-20 120,-10c70,10 110,40 130,80c10,30 0,60 0,70h-260c0,0 -20,-50 -10,-90C50,40 60,20 60,20z" />
+
+    <!-- Bench (leg press style) -->
+    <path
+        android:fillColor="#0D0D0D"
+        android:pathData="M40,120h220v18h-220z" />
+
+    <!-- Bodybuilder torso lying -->
+    <path
+        android:fillColor="#5C3823"
+        android:pathData="M70,90c0,0 30,-10 80,-10c50,0 90,15 90,15c8,2 14,8 14,16v9h-198v-12C56,100 62,92 70,90z" />
+
+    <!-- Pec definition -->
+    <path
+        android:fillColor="#3A2418"
+        android:pathData="M150,82h4v28h-4z" />
+
+    <!-- Abs strip -->
+    <path
+        android:fillColor="#6B3F26"
+        android:pathData="M120,108h60v18h-60z" />
+    <path
+        android:fillColor="#3A2418"
+        android:pathData="M148,108h4v18h-4z" />
+    <path
+        android:fillColor="#3A2418"
+        android:pathData="M120,116h60v1h-60z" />
+
+    <!-- Legs (raised on press) -->
+    <path
+        android:fillColor="#5C3823"
+        android:pathData="M180,86c0,0 30,-14 60,-10c30,4 50,14 60,18c5,2 8,8 5,12c-3,4 -8,5 -12,3c0,0 -25,-12 -55,-14c-30,-2 -58,4 -58,4z" />
+
+    <!-- Quad highlight -->
+    <path
+        android:fillColor="#7A4A2E"
+        android:pathData="M210,82c10,-2 30,-4 50,0c8,2 12,8 8,12c-4,4 -10,2 -18,0c-12,-2 -32,-2 -40,-2z" />
+
+</vector>

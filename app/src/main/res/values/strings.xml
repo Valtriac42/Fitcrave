@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fitcrave</string>
+
+    <string name="workouts">Workouts</string>
+    <string name="kcal">KCAL</string>
+    <string name="minutes">MINUTES</string>
+
+    <string name="weekly_progress">Weekly Progress</string>
+    <string name="tasks">Tasks</string>
+
+    <string name="workout">Workout</string>
+    <string name="day_zero">DAY 0</string>
+    <string name="workout_subtitle">Personalized routines to help you achieve your fitness goals</string>
+    <string name="start">START</string>
+
+    <string name="diet">DIET</string>
+    <string name="diet_day">DAY</string>
+    <string name="diet_subtitle">Simplify your meals</string>
+
+    <string name="report">REPORT</string>
+
+    <string name="nav_training">Training</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="have_account">Already have an account? Login</string>
+    <string name="no_account">Don\'t have an account? Sign up</string>
+    <string name="logout">Logout</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="profile_title">Profile</string>
+
+    <!-- WebView -->
+    <string name="open_web_dashboard">Open Web Dashboard</string>
+</resources>
