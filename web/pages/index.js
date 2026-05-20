@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-// Fill these in Vercel as environment variables (NEXT_PUBLIC_*)
-const supabaseUrl  = process.env.NEXT_PUBLIC_SUPABASE_URL  || "";
-const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
-const supabase = supabaseUrl ? createClient(supabaseUrl, supabaseAnon) : null;
+// Read env at build time, but instantiate the client lazily inside useEffect
+// so a bad/missing value can't break static rendering.
+const supabaseUrl  = (process.env.NEXT_PUBLIC_SUPABASE_URL  || "").trim();
+const supabaseAnon = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "").trim();
 
 export default function Home() {
   const [stats, setStats] = useState({ workouts: 0, kcal: 0, minutes: 0 });
 
   useEffect(() => {
-    if (!supabase) return;
+    if (!supabaseUrl || !supabaseAnon) return;
+    let supabase;
+    try {
+      supabase = createClient(supabaseUrl, supabaseAnon);
+    } catch (e) {
+      console.error("Invalid Supabase config:", e);
+      return;
+    }
     (async () => {
       const today = new Date().toISOString().slice(0, 10);
       const { data } = await supabase
